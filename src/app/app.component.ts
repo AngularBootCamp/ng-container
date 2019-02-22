@@ -12,7 +12,7 @@ export class AppComponent {
   descriptorsControl: FormControl = new FormControl();
   showDetails: boolean = false;
   terms: any[] = terms;
-  adjectives: string[];
+  adjectives: string[] = [];
   programmingLanguages: any[] = proglangs;
 
   constructor() {
