@@ -10,14 +10,15 @@ import { adjectives, proglangs, terms } from './data';
 })
 export class AppComponent {
   descriptorsControl: FormControl = new FormControl();
-  showDetails: boolean = false;
+  showDetails = false;
   terms: any[] = terms;
   adjectives: string[] = [];
   programmingLanguages: any[] = proglangs;
 
   constructor() {
-    this.descriptorsControl.valueChanges.subscribe(x =>
-       this.adjectives = adjectives.slice(0, x));
+    this.descriptorsControl.valueChanges.subscribe(
+      x => (this.adjectives = adjectives.slice(0, x))
+    );
     this.descriptorsControl.setValue(4);
   }
 }

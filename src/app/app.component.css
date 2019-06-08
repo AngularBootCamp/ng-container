@@ -1,4 +1,3 @@
-
 /* What happens if the spans inside paragraphs are styled? */
 
 p > span {
@@ -21,4 +20,3 @@ dd {
 table {
   margin-top: 10px;
 }
-

@@ -49,30 +49,30 @@ export const proglangs: any[] = [
     language: 'Befunge',
     designer: 'Chris Pressey',
     released: '1993',
-    link:     'https://en.wikipedia.org/wiki/Befunge'
+    link: 'https://en.wikipedia.org/wiki/Befunge'
   },
   {
     language: 'INTERCAL',
     designer: 'Donald R. Woods and James M. Lyon',
     released: '1972',
-    link:     'https://en.wikipedia.org/wiki/INTERCAL'
+    link: 'https://en.wikipedia.org/wiki/INTERCAL'
   },
   {
     language: 'LOLCODE',
     designer: 'Adam Lindsay',
     released: '2007',
-    link:     'https://en.wikipedia.org/wiki/LOLCODE'
+    link: 'https://en.wikipedia.org/wiki/LOLCODE'
   },
   {
     language: 'Malbolge',
     designer: 'Ben Olmstead',
     released: '1998',
-    link:     'https://en.wikipedia.org/wiki/Malbolge'
+    link: 'https://en.wikipedia.org/wiki/Malbolge'
   },
   {
     language: 'Unlambda',
     designer: 'David Madore',
     released: '1999',
-    link:     'https://en.wikipedia.org/wiki/Unlambda'
+    link: 'https://en.wikipedia.org/wiki/Unlambda'
   }
 ];

@@ -8,7 +8,6 @@
         <dd>{{ term.definition }}</dd>
       </ng-container>
     </dl>
-
   </div>
 </section>
 
@@ -21,9 +20,7 @@
     </button>
 
     <table class="bordered">
-
       <ng-container *ngFor="let langInfo of programmingLanguages">
-
         <tr class="grey lighten-2 z-depth-3">
           <td colspan="2">
             <strong>{{ langInfo.language }}</strong>
@@ -31,7 +28,6 @@
         </tr>
 
         <ng-container *ngIf="showDetails">
-
           <tr>
             <td>Designer:</td>
             <td>{{ langInfo.designer }}</td>
@@ -50,13 +46,9 @@
               </a>
             </td>
           </tr>
-
         </ng-container>
-
       </ng-container>
-
     </table>
-
   </div>
 </section>
 
@@ -65,9 +57,15 @@
     <div class="card-title">Purple Prose</div>
 
     <!-- This should use a reactive control instead -->
-    <label>Descriptiveness:
-      <input type="range" min="0" max="10" step="0.1"
-        [formControl]="descriptorsControl">
+    <label>
+      Descriptiveness:
+      <input
+        type="range"
+        min="0"
+        max="10"
+        step="0.1"
+        [formControl]="descriptorsControl"
+      />
     </label>
 
     <!-- Compare the DOM for the span and ng-container versions. -->
@@ -77,14 +75,17 @@
     <p style="margin-bottom: 10px;">
       It was a
 
-      <span *ngFor="let adjective of adjectives;
-                    let isFirst = first;
-                    let isLast = last;"
+      <span
+        *ngFor="
+          let adjective of adjectives;
+          let isFirst = first;
+          let isLast = last
+        "
       >
         <span *ngIf="!isFirst && isLast">and</span>
-        {{ adjective }}<span *ngIf="adjectives.length >= 3 && !isLast">, </span>
+        {{ adjective }}
+        <span *ngIf="adjectives.length >= 3 && !isLast">, </span>
       </span>
-
       night.
     </p>
 
@@ -93,16 +94,21 @@
     <p style="margin-bottom: 10px;">
       It was a
 
-      <ng-container *ngFor="let adjective of adjectives;
-                            let isFirst = first;
-                            let isLast = last;"
+      <ng-container
+        *ngFor="
+          let adjective of adjectives;
+          let isFirst = first;
+          let isLast = last
+        "
       >
         <ng-container *ngIf="!isFirst && isLast">and</ng-container>
-        {{ adjective }}<ng-container *ngIf="adjectives.length >= 3 && !isLast">, </ng-container>
+        {{ adjective }}
+        <ng-container *ngIf="adjectives.length >= 3 && !isLast">
+          ,
+        </ng-container>
       </ng-container>
 
       night.
     </p>
-
   </div>
 </section>
