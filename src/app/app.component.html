@@ -83,8 +83,8 @@
         "
       >
         <span *ngIf="!isFirst && isLast">and</span>
-        {{ adjective }}
-        <span *ngIf="adjectives.length >= 3 && !isLast">, </span>
+        {{ adjective
+        }}<span *ngIf="adjectives.length >= 3 && !isLast">, </span>
       </span>
       night.
     </p>
@@ -102,12 +102,11 @@
         "
       >
         <ng-container *ngIf="!isFirst && isLast">and</ng-container>
-        {{ adjective }}
-        <ng-container *ngIf="adjectives.length >= 3 && !isLast">
-          ,
+        {{ adjective
+        }}<ng-container *ngIf="adjectives.length >= 3 && !isLast"
+          >,
         </ng-container>
       </ng-container>
-
       night.
     </p>
   </div>
