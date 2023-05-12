@@ -1,113 +1,106 @@
-<section class="card">
-  <div class="card-content">
-    <div class="card-title">Glossary of Useful Terms</div>
+<article>
+  <header>Glossary of Useful Terms</header>
 
-    <dl>
-      <ng-container *ngFor="let term of terms">
-        <dt>{{ term.term }}</dt>
-        <dd>{{ term.definition }}</dd>
-      </ng-container>
-    </dl>
-  </div>
-</section>
+  <dl>
+    <ng-container *ngFor="let term of terms">
+      <dt>{{ term.term }}</dt>
+      <dd>{{ term.definition }}</dd>
+    </ng-container>
+  </dl>
+</article>
 
-<section class="card">
-  <div class="card-content">
-    <div class="card-title">Important Programming Languages</div>
+<article>
+  <header>Important Programming Languages</header>
 
-    <button class="btn" (click)="showDetails = !showDetails">
-      {{ showDetails ? 'Hide' : 'Show' }} Details
-    </button>
+  <button (click)="showDetails = !showDetails">
+    {{ showDetails ? 'Hide' : 'Show' }} Details
+  </button>
 
-    <table class="bordered">
-      <ng-container *ngFor="let langInfo of programmingLanguages">
-        <tr class="grey lighten-2 z-depth-3">
-          <td colspan="2">
-            <strong>{{ langInfo.language }}</strong>
-          </td>
+  <table>
+    <ng-container *ngFor="let langInfo of programmingLanguages">
+      <tr>
+        <td colspan="2">
+          <strong>{{ langInfo.language }}</strong>
+        </td>
+      </tr>
+
+      <ng-container *ngIf="showDetails">
+        <tr>
+          <td>Designer:</td>
+          <td>{{ langInfo.designer }}</td>
         </tr>
 
-        <ng-container *ngIf="showDetails">
-          <tr>
-            <td>Designer:</td>
-            <td>{{ langInfo.designer }}</td>
-          </tr>
+        <tr>
+          <td>Released:</td>
+          <td>{{ langInfo.released }}</td>
+        </tr>
 
-          <tr>
-            <td>Released:</td>
-            <td>{{ langInfo.released }}</td>
-          </tr>
-
-          <tr>
-            <td>More info:</td>
-            <td>
-              <a href="{{ langInfo.link }}" target="_blank">
-                {{ langInfo.link }}
-              </a>
-            </td>
-          </tr>
-        </ng-container>
+        <tr>
+          <td>More info:</td>
+          <td>
+            <a href="{{ langInfo.link }}" target="_blank">
+              {{ langInfo.link }}
+            </a>
+          </td>
+        </tr>
       </ng-container>
-    </table>
-  </div>
-</section>
+    </ng-container>
+  </table>
+</article>
 
-<section class="card">
-  <div class="card-content">
-    <div class="card-title">Purple Prose</div>
+<article>
+  <header>Purple Prose</header>
 
-    <!-- This should use a reactive control instead -->
-    <label>
-      Descriptiveness:
-      <input
-        type="range"
-        min="0"
-        max="10"
-        step="0.1"
-        [formControl]="descriptorsControl"
-      />
-    </label>
+  <label>
+    Descriptiveness:
+    <input
+      type="range"
+      min="0"
+      max="10"
+      step="0.1"
+      [formControl]="descriptorsControl"
+    />
+  </label>
 
-    <!-- Compare the DOM for the span and ng-container versions. -->
+  <!-- Compare the DOM for the span and ng-container versions. -->
 
-    <label>Using span:</label>
+  <label>Using span:</label>
 
-    <p style="margin-bottom: 10px">
-      It was a
+  <p>
+    It was a
 
-      <span
-        *ngFor="
-          let adjective of adjectives;
-          let isFirst = first;
-          let isLast = last
-        "
-      >
-        <span *ngIf="!isFirst && isLast">and</span>
-        {{ adjective
-        }}<span *ngIf="adjectives.length >= 3 && !isLast">, </span>
-      </span>
-      night.
-    </p>
+    <span
+      *ngFor="
+        let adjective of adjectives;
+        let isFirst = first;
+        let isLast = last
+      "
+    >
+      <span *ngIf="!isFirst && isLast">and</span>
+      {{ adjective }}
+      <span *ngIf="adjectives.length >= 3 && !isLast">,</span>
+    </span>
+    night.
+  </p>
 
-    <label>Using ng-container:</label>
+  <label>Using ng-container:</label>
 
-    <p style="margin-bottom: 10px">
-      It was a
+  <p>
+    It was a
 
-      <ng-container
-        *ngFor="
-          let adjective of adjectives;
-          let isFirst = first;
-          let isLast = last
-        "
-      >
-        <ng-container *ngIf="!isFirst && isLast">and</ng-container>
-        {{ adjective
-        }}<ng-container *ngIf="adjectives.length >= 3 && !isLast"
-          >,
-        </ng-container>
+    <ng-container
+      *ngFor="
+        let adjective of adjectives;
+        let isFirst = first;
+        let isLast = last
+      "
+    >
+      <ng-container *ngIf="!isFirst && isLast">and</ng-container>
+      {{ adjective }}
+      <ng-container *ngIf="adjectives.length >= 3 && !isLast">
+        ,
       </ng-container>
-      night.
-    </p>
-  </div>
-</section>
+    </ng-container>
+    night.
+  </p>
+</article>
