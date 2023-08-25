@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl } from '@angular/forms';
 
 import { adjectives, proglangs, terms } from './data';
@@ -11,14 +12,14 @@ import { adjectives, proglangs, terms } from './data';
 export class AppComponent {
   descriptorsControl: FormControl = new FormControl();
   showDetails = false;
-  terms: any[] = terms;
+  terms = terms;
   adjectives: string[] = [];
-  programmingLanguages: any[] = proglangs;
+  programmingLanguages = proglangs;
 
   constructor() {
-    this.descriptorsControl.valueChanges.subscribe(
-      x => (this.adjectives = adjectives.slice(0, x))
-    );
+    this.descriptorsControl.valueChanges
+      .pipe(takeUntilDestroyed())
+      .subscribe(x => (this.adjectives = adjectives.slice(0, x)));
     this.descriptorsControl.setValue(4);
   }
 }

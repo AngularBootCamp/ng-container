@@ -1,4 +1,16 @@
-export const adjectives: string[] = [
+export interface Term {
+  definition: string;
+  term: string;
+}
+
+export interface ProgrammingLanguage {
+  designer: string;
+  language: string;
+  link: string;
+  released: string;
+}
+
+export const adjectives = [
   'dark',
   'stormy',
   'eerie',
@@ -11,7 +23,7 @@ export const adjectives: string[] = [
   'scary'
 ];
 
-export const terms: any[] = [
+export const terms: Term[] = [
   {
     term: 'anatidaephobia',
     definition:
@@ -44,7 +56,7 @@ export const terms: any[] = [
   }
 ];
 
-export const proglangs: any[] = [
+export const proglangs: ProgrammingLanguage[] = [
   {
     language: 'Befunge',
     designer: 'Chris Pressey',
