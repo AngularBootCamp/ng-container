@@ -1,13 +1,16 @@
+import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { FormControl } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { adjectives, proglangs, terms } from './data';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [NgFor, NgIf, ReactiveFormsModule]
 })
 export class AppComponent {
   descriptorsControl: FormControl = new FormControl();
