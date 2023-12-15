@@ -8,7 +8,7 @@ import { adjectives, proglangs, terms } from './data';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss',
   standalone: true,
   imports: [NgFor, NgIf, ReactiveFormsModule]
 })
